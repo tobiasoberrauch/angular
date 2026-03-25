@@ -88,6 +88,9 @@ export class TaskBoardComponent {
     { id: '5', title: 'Write unit tests', status: 'review', priority: 'medium' },
   ]);
 
+  // COMPUTED GROUPING: Derives a grouped view from the flat task list.
+  // With Zone.js, you'd recompute this on every change detection cycle.
+  // With signals, this only runs when tasks() changes.
   readonly tasksByStatus = computed(() => {
     const grouped: Record<string, Task[]> = { todo: [], 'in-progress': [], review: [], done: [] };
     for (const task of this.tasks()) {
@@ -96,6 +99,9 @@ export class TaskBoardComponent {
     return grouped;
   });
 
+  // DERIVED COMPUTED: Reads from another computed (tasksByStatus).
+  // Signals form a dependency graph — columnCounts depends on tasksByStatus,
+  // which depends on tasks. Change propagates automatically.
   readonly columnCounts = computed(() => {
     const counts: Record<string, number> = {};
     for (const col of this.columns) {

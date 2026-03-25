@@ -88,14 +88,14 @@
 
 **Independent Test**: Components reactively update UI via Signals without manual change detection calls
 
-- [ ] T026 [US3] Add `signal()` state to sidebar component at `src/app/layout/sidebar.component.ts` for active route tracking and collapsed state
-- [ ] T027 [P] [US3] Add `signal()` and `computed()` to E-Commerce product list placeholder at `src/app/features/ecommerce/ui/product-list/product-list.component.ts` with reactive filtering/sorting
-- [ ] T028 [P] [US3] Add `signal()` and `computed()` to Task board placeholder at `src/app/features/tasks/ui/task-board/task-board.component.ts` with task count computations per status column
-- [ ] T029 [P] [US3] Add `signal()` and `computed()` to HR employee list at `src/app/features/hr/ui/employee-list/employee-list.component.ts` with department filtering
-- [ ] T030 [P] [US3] Add `signal()` and `computed()` to CRM contact list at `src/app/features/crm/ui/contact-list/contact-list.component.ts` with tag-based filtering
-- [ ] T031 [US3] Add `effect()` examples for logging and side effects in `src/app/core/services/notification.service.ts`
-- [ ] T032 [US3] Add inline comments throughout signal implementations explaining reactive data flow vs Zone.js imperative updates
-- [ ] T033 [US3] Verify all signal-based components render and update correctly. Create Git branch `step-03-signals-reactivity`
+- [x] T026 [US3] Add `signal()` state to sidebar component at `src/app/layout/sidebar.component.ts` for active route tracking and collapsed state
+- [x] T027 [P] [US3] Add `signal()` and `computed()` to E-Commerce product list placeholder at `src/app/features/ecommerce/ui/product-list/product-list.component.ts` with reactive filtering/sorting
+- [x] T028 [P] [US3] Add `signal()` and `computed()` to Task board placeholder at `src/app/features/tasks/ui/task-board/task-board.component.ts` with task count computations per status column
+- [x] T029 [P] [US3] Add `signal()` and `computed()` to HR employee list at `src/app/features/hr/ui/employee-list/employee-list.component.ts` with department filtering
+- [x] T030 [P] [US3] Add `signal()` and `computed()` to CRM contact list at `src/app/features/crm/ui/contact-list/contact-list.component.ts` with tag-based filtering
+- [x] T031 [US3] Add `effect()` examples for logging and side effects in `src/app/core/services/notification.service.ts`
+- [x] T032 [US3] Add inline comments throughout signal implementations explaining reactive data flow vs Zone.js imperative updates
+- [x] T033 [US3] Verify all signal-based components render and update correctly. Create Git branch `step-03-signals-reactivity`
 
 **Checkpoint**: All feature components use Signals for state. computed() derives filtered/sorted views. effect() handles side effects. UI updates reactively.
 

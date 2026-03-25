@@ -58,7 +58,10 @@ import { CurrencyPipe } from '@angular/common';
   `,
 })
 export class ProductListComponent {
-  // Signals for reactive state management
+  // SIGNALS PATTERN: signal() creates a reactive primitive.
+  // Unlike Zone.js change detection, signals track exactly which consumers
+  // depend on them. When searchTerm changes, only filteredProducts and
+  // filteredCount recompute — the rest of the component is untouched.
   readonly searchTerm = signal('');
   readonly products = signal([
     { id: '1', name: 'Angular Workshop Book', price: 49.99, category: 'Books', inStock: true },
@@ -67,7 +70,10 @@ export class ProductListComponent {
     { id: '4', name: 'NgRx Signals Guide', price: 19.99, category: 'Books', inStock: true },
   ]);
 
-  // Computed signal for filtered products
+  // COMPUTED PATTERN: computed() derives state from other signals.
+  // This replaces imperative filtering with getters or pipe transforms.
+  // Key difference from Zone.js: computed() is lazily evaluated and
+  // memoized — it only recalculates when its signal dependencies change.
   readonly filteredProducts = computed(() => {
     const term = this.searchTerm().toLowerCase();
     return this.products().filter(

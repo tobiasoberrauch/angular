@@ -15,7 +15,10 @@ export class NotificationService {
   readonly unreadCount = computed(() => this._notifications().length);
 
   constructor() {
-    // effect() demonstrates side effects triggered by signal changes
+    // EFFECT PATTERN: effect() runs side effects when signal dependencies change.
+    // Unlike computed(), effect() is for actions (logging, analytics, DOM manipulation)
+    // not derived state. It runs asynchronously after signal updates settle.
+    // In Zone.js world, you'd use ngOnChanges or a BehaviorSubject subscription.
     effect(() => {
       const count = this.unreadCount();
       if (count > 0) {

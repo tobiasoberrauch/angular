@@ -108,6 +108,11 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   `,
 })
 export class SidebarComponent {
+  // SIGNAL STATE: signal() replaces class properties for reactive UI binding.
+  // Template reads via collapsed() — Angular tracks this read and only
+  // re-renders the affected DOM nodes when the value changes.
+  // With Zone.js: every click would trigger full component tree check.
+  // With Signals: only the collapsed-dependent bindings update.
   readonly collapsed = signal(false);
 
   readonly navItems = [
