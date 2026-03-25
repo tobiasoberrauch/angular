@@ -6,4 +6,9 @@ export const ecommerceRoutes: Routes = [
     loadComponent: () =>
       import('./ui/product-list/product-list.component').then((m) => m.ProductListComponent),
   },
+  {
+    path: 'checkout',
+    loadComponent: () =>
+      import('./ui/checkout/checkout.component').then((m) => m.CheckoutComponent),
+  },
 ];

@@ -6,4 +6,9 @@ export const tasksRoutes: Routes = [
     loadComponent: () =>
       import('./ui/task-board/task-board.component').then((m) => m.TaskBoardComponent),
   },
+  {
+    path: 'new',
+    loadComponent: () =>
+      import('./ui/task-form/task-form.component').then((m) => m.TaskFormComponent),
+  },
 ];
