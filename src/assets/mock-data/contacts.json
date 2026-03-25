@@ -1,0 +1,12 @@
+[
+  { "id": "1", "firstName": "Konstantin", "lastName": "Merker", "email": "k.merker@dvc.de", "company": "DVC", "tags": ["lead", "angular"], "phone": "+49 170 1234567" },
+  { "id": "2", "firstName": "Helena", "lastName": "Gruber", "email": "h.gruber@techvision.de", "company": "TechVision GmbH", "tags": ["customer", "enterprise"], "phone": "+49 151 9876543" },
+  { "id": "3", "firstName": "Maximilian", "lastName": "Berger", "email": "m.berger@softworks.de", "company": "SoftWorks AG", "tags": ["partner", "consulting"], "phone": "+49 176 2345678" },
+  { "id": "4", "firstName": "Sophie", "lastName": "Hartmann", "email": "s.hartmann@digitalcraft.io", "company": "DigitalCraft", "tags": ["lead", "startup"], "phone": "+49 160 3456789" },
+  { "id": "5", "firstName": "Lukas", "lastName": "Zimmermann", "email": "l.zimmermann@bayerndev.de", "company": "BayernDev GmbH", "tags": ["customer", "angular", "rxjs"], "phone": "+49 172 4567890" },
+  { "id": "6", "firstName": "Franziska", "lastName": "Keller", "email": "f.keller@cloudnative.eu", "company": "CloudNative Europe", "tags": ["partner", "devops"], "phone": "+49 157 5678901" },
+  { "id": "7", "firstName": "Patrick", "lastName": "Neumann", "email": "p.neumann@innovatech.de", "company": "InnovaTech Solutions", "tags": ["lead", "enterprise", "migration"], "phone": "+49 163 6789012" },
+  { "id": "8", "firstName": "Carolin", "lastName": "Schwarz", "email": "c.schwarz@dvc.de", "company": "DVC", "tags": ["internal", "design"], "phone": "+49 175 7890123" },
+  { "id": "9", "firstName": "Alexander", "lastName": "Vogel", "email": "a.vogel@rheinsoft.de", "company": "RheinSoft GmbH", "tags": ["customer", "training"], "phone": "+49 152 8901234" },
+  { "id": "10", "firstName": "Nina", "lastName": "Lehmann", "email": "n.lehmann@uxstudio.de", "company": "UX Studio Berlin", "tags": ["partner", "design", "ux"], "phone": "+49 178 9012345" }
+]

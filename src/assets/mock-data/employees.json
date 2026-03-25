@@ -1,0 +1,12 @@
+[
+  { "id": "1", "firstName": "Anna", "lastName": "Schmidt", "email": "a.schmidt@dvc.de", "department": "Engineering", "position": "Senior Developer", "startDate": "2022-03-15" },
+  { "id": "2", "firstName": "Markus", "lastName": "Weber", "email": "m.weber@dvc.de", "department": "Engineering", "position": "Tech Lead", "startDate": "2020-09-01" },
+  { "id": "3", "firstName": "Lisa", "lastName": "Braun", "email": "l.braun@dvc.de", "department": "Design", "position": "UX Designer", "startDate": "2023-01-10" },
+  { "id": "4", "firstName": "Thomas", "lastName": "Fischer", "email": "t.fischer@dvc.de", "department": "Product", "position": "Product Owner", "startDate": "2021-06-20" },
+  { "id": "5", "firstName": "Julia", "lastName": "Hoffmann", "email": "j.hoffmann@dvc.de", "department": "Marketing", "position": "Content Manager", "startDate": "2023-04-03" },
+  { "id": "6", "firstName": "Sebastian", "lastName": "Klein", "email": "s.klein@dvc.de", "department": "Engineering", "position": "Junior Developer", "startDate": "2024-02-12" },
+  { "id": "7", "firstName": "Katharina", "lastName": "Bauer", "email": "k.bauer@dvc.de", "department": "Design", "position": "Visual Designer", "startDate": "2022-11-07" },
+  { "id": "8", "firstName": "Florian", "lastName": "Richter", "email": "f.richter@dvc.de", "department": "Engineering", "position": "DevOps Engineer", "startDate": "2021-08-15" },
+  { "id": "9", "firstName": "Marie", "lastName": "Schuster", "email": "m.schuster@dvc.de", "department": "Product", "position": "Scrum Master", "startDate": "2022-05-23" },
+  { "id": "10", "firstName": "Daniel", "lastName": "Wolf", "email": "d.wolf@dvc.de", "department": "Marketing", "position": "Growth Manager", "startDate": "2023-09-18" }
+]
