@@ -1,29 +1,21 @@
-import { Component, signal, computed } from '@angular/core';
-
-interface Employee {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  department: string;
-  position: string;
-}
+import { Component, inject } from '@angular/core';
+import { EmployeeStore } from '../../data-access/employee.store';
 
 @Component({
   selector: 'app-employee-list',
   template: `
     <h2 class="page-title">Employee Directory</h2>
     <div class="toolbar">
-      <select (change)="selectedDepartment.set($any($event.target).value)">
+      <select (change)="employeeStore.selectDepartment($any($event.target).value)">
         <option value="">All Departments</option>
-        @for (dept of departments(); track dept) {
+        @for (dept of employeeStore.departments(); track dept) {
           <option [value]="dept">{{ dept }}</option>
         }
       </select>
-      <span class="count">{{ filteredEmployees().length }} employees</span>
+      <span class="count">{{ employeeStore.filteredEmployees().length }} employees</span>
     </div>
     <div class="employee-grid">
-      @for (emp of filteredEmployees(); track emp.id) {
+      @for (emp of employeeStore.filteredEmployees(); track emp.id) {
         <div class="card employee-card">
           <div class="employee-card__avatar">{{ emp.firstName[0] }}{{ emp.lastName[0] }}</div>
           <div>
@@ -81,21 +73,5 @@ interface Employee {
   `,
 })
 export class EmployeeListComponent {
-  readonly selectedDepartment = signal('');
-
-  readonly employees = signal<Employee[]>([
-    { id: '1', firstName: 'Anna', lastName: 'Schmidt', email: 'a.schmidt@dvc.de', department: 'Engineering', position: 'Senior Developer' },
-    { id: '2', firstName: 'Max', lastName: 'Mueller', email: 'm.mueller@dvc.de', department: 'Engineering', position: 'Tech Lead' },
-    { id: '3', firstName: 'Lisa', lastName: 'Weber', email: 'l.weber@dvc.de', department: 'Design', position: 'UX Designer' },
-    { id: '4', firstName: 'Tom', lastName: 'Fischer', email: 't.fischer@dvc.de', department: 'Product', position: 'Product Manager' },
-  ]);
-
-  readonly departments = computed(() =>
-    [...new Set(this.employees().map((e) => e.department))].sort()
-  );
-
-  readonly filteredEmployees = computed(() => {
-    const dept = this.selectedDepartment();
-    return dept ? this.employees().filter((e) => e.department === dept) : this.employees();
-  });
+  readonly employeeStore = inject(EmployeeStore);
 }

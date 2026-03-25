@@ -1,11 +1,5 @@
-import { Component, signal, computed } from '@angular/core';
-
-interface Task {
-  id: string;
-  title: string;
-  status: 'todo' | 'in-progress' | 'review' | 'done';
-  priority: 'low' | 'medium' | 'high' | 'critical';
-}
+import { Component, inject } from '@angular/core';
+import { TaskStore } from '../../data-access/task.store';
 
 @Component({
   selector: 'app-task-board',
@@ -15,12 +9,13 @@ interface Task {
       @for (column of columns; track column.status) {
         <div class="board__column">
           <h3 class="board__column-header">
-            {{ column.label }} ({{ columnCounts()[column.status] }})
+            {{ column.label }} ({{ taskStore.statusCounts()[column.status] }})
           </h3>
-          @for (task of tasksByStatus()[column.status]; track task.id) {
+          @for (task of taskStore.tasksByStatus()[column.status]; track task.id) {
             <div class="card task-card" [class]="'priority--' + task.priority">
               <span class="task-card__priority">{{ task.priority }}</span>
               <p class="task-card__title">{{ task.title }}</p>
+              <p class="task-card__desc">{{ task.description }}</p>
             </div>
           } @empty {
             <p class="board__empty">No tasks</p>
@@ -70,43 +65,18 @@ interface Task {
     }
 
     .task-card__title { margin-top: var(--spacing-xs); }
+    .task-card__desc { font-size: 12px; color: var(--color-text-secondary); margin-top: 2px; }
   `,
 })
 export class TaskBoardComponent {
+  // Store injection — component has zero local state.
+  // All state lives in the SignalStore, making it testable and shareable.
+  readonly taskStore = inject(TaskStore);
+
   readonly columns = [
     { status: 'todo' as const, label: 'To Do' },
     { status: 'in-progress' as const, label: 'In Progress' },
     { status: 'review' as const, label: 'Review' },
     { status: 'done' as const, label: 'Done' },
   ];
-
-  readonly tasks = signal<Task[]>([
-    { id: '1', title: 'Setup project structure', status: 'done', priority: 'high' },
-    { id: '2', title: 'Implement product catalog', status: 'in-progress', priority: 'high' },
-    { id: '3', title: 'Create user dashboard', status: 'todo', priority: 'medium' },
-    { id: '4', title: 'Add authentication', status: 'todo', priority: 'critical' },
-    { id: '5', title: 'Write unit tests', status: 'review', priority: 'medium' },
-  ]);
-
-  // COMPUTED GROUPING: Derives a grouped view from the flat task list.
-  // With Zone.js, you'd recompute this on every change detection cycle.
-  // With signals, this only runs when tasks() changes.
-  readonly tasksByStatus = computed(() => {
-    const grouped: Record<string, Task[]> = { todo: [], 'in-progress': [], review: [], done: [] };
-    for (const task of this.tasks()) {
-      grouped[task.status].push(task);
-    }
-    return grouped;
-  });
-
-  // DERIVED COMPUTED: Reads from another computed (tasksByStatus).
-  // Signals form a dependency graph — columnCounts depends on tasksByStatus,
-  // which depends on tasks. Change propagates automatically.
-  readonly columnCounts = computed(() => {
-    const counts: Record<string, number> = {};
-    for (const col of this.columns) {
-      counts[col.status] = this.tasksByStatus()[col.status].length;
-    }
-    return counts;
-  });
 }

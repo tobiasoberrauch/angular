@@ -1,5 +1,7 @@
-import { Component, signal, computed } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
+import { ProductStore } from '../../data-access/product.store';
+import { CartStore } from '../../data-access/cart.store';
 
 @Component({
   selector: 'app-product-list',
@@ -10,18 +12,30 @@ import { CurrencyPipe } from '@angular/common';
       <input
         type="text"
         placeholder="Search products..."
-        [value]="searchTerm()"
-        (input)="searchTerm.set($any($event.target).value)"
+        [value]="productStore.searchTerm()"
+        (input)="productStore.setSearchTerm($any($event.target).value)"
       />
-      <span class="count">{{ filteredCount() }} products</span>
+      <span class="count">{{ productStore.filteredProducts().length }} products</span>
+      @if (cartStore.itemCount() > 0) {
+        <span class="cart-badge">Cart: {{ cartStore.itemCount() }} items ({{ cartStore.total() | currency:'EUR' }})</span>
+      }
     </div>
     <div class="product-grid">
-      @for (product of filteredProducts(); track product.id) {
+      @for (product of productStore.filteredProducts(); track product.id) {
         <div class="card product-card">
           <h3>{{ product.name }}</h3>
           <p class="price">{{ product.price | currency:'EUR' }}</p>
           <p class="category">{{ product.category }}</p>
-          <button class="btn btn--primary" (click)="addToCart(product)">Add to Cart</button>
+          <p class="stock" [class.out-of-stock]="!product.inStock">
+            {{ product.inStock ? 'In Stock' : 'Out of Stock' }}
+          </p>
+          <button
+            class="btn btn--primary"
+            [disabled]="!product.inStock"
+            (click)="cartStore.addItem(product.id, product.name, product.price)"
+          >
+            Add to Cart
+          </button>
         </div>
       } @empty {
         <p>No products found.</p>
@@ -45,6 +59,14 @@ import { CurrencyPipe } from '@angular/common';
     }
 
     .count { color: var(--color-text-secondary); }
+    .cart-badge {
+      margin-left: auto;
+      padding: 4px 12px;
+      background: var(--color-primary);
+      color: white;
+      border-radius: var(--radius);
+      font-size: 13px;
+    }
 
     .product-grid {
       display: grid;
@@ -55,35 +77,14 @@ import { CurrencyPipe } from '@angular/common';
     .product-card h3 { margin-bottom: var(--spacing-sm); }
     .price { font-size: 18px; font-weight: 600; color: var(--color-primary); }
     .category { color: var(--color-text-secondary); margin: var(--spacing-sm) 0; }
+    .stock { font-size: 12px; color: var(--color-success); }
+    .out-of-stock { color: var(--color-warn); }
   `,
 })
 export class ProductListComponent {
-  // SIGNALS PATTERN: signal() creates a reactive primitive.
-  // Unlike Zone.js change detection, signals track exactly which consumers
-  // depend on them. When searchTerm changes, only filteredProducts and
-  // filteredCount recompute — the rest of the component is untouched.
-  readonly searchTerm = signal('');
-  readonly products = signal([
-    { id: '1', name: 'Angular Workshop Book', price: 49.99, category: 'Books', inStock: true },
-    { id: '2', name: 'TypeScript Masterclass', price: 39.99, category: 'Courses', inStock: true },
-    { id: '3', name: 'RxJS Deep Dive', price: 29.99, category: 'Courses', inStock: false },
-    { id: '4', name: 'NgRx Signals Guide', price: 19.99, category: 'Books', inStock: true },
-  ]);
-
-  // COMPUTED PATTERN: computed() derives state from other signals.
-  // This replaces imperative filtering with getters or pipe transforms.
-  // Key difference from Zone.js: computed() is lazily evaluated and
-  // memoized — it only recalculates when its signal dependencies change.
-  readonly filteredProducts = computed(() => {
-    const term = this.searchTerm().toLowerCase();
-    return this.products().filter(
-      (p) => p.name.toLowerCase().includes(term) || p.category.toLowerCase().includes(term)
-    );
-  });
-
-  readonly filteredCount = computed(() => this.filteredProducts().length);
-
-  addToCart(product: { id: string; name: string }): void {
-    console.log(`Added ${product.name} to cart`);
-  }
+  // SIGNALSTORE INJECTION: inject() replaces constructor injection.
+  // The store is a singleton (providedIn: 'root') — all components
+  // share the same reactive state automatically.
+  readonly productStore = inject(ProductStore);
+  readonly cartStore = inject(CartStore);
 }

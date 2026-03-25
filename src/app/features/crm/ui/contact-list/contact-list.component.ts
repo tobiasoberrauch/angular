@@ -1,13 +1,5 @@
-import { Component, signal, computed } from '@angular/core';
-
-interface Contact {
-  id: string;
-  firstName: string;
-  lastName: string;
-  email: string;
-  company: string;
-  tags: string[];
-}
+import { Component, inject } from '@angular/core';
+import { ContactStore } from '../../data-access/contact.store';
 
 @Component({
   selector: 'app-contact-list',
@@ -17,10 +9,10 @@ interface Contact {
       <input
         type="text"
         placeholder="Search contacts..."
-        [value]="searchTerm()"
-        (input)="searchTerm.set($any($event.target).value)"
+        [value]="contactStore.searchTerm()"
+        (input)="contactStore.setSearchTerm($any($event.target).value)"
       />
-      <span class="count">{{ filteredContacts().length }} contacts</span>
+      <span class="count">{{ contactStore.filteredContacts().length }} contacts</span>
     </div>
     <table class="contact-table">
       <thead>
@@ -32,7 +24,7 @@ interface Contact {
         </tr>
       </thead>
       <tbody>
-        @for (contact of filteredContacts(); track contact.id) {
+        @for (contact of contactStore.filteredContacts(); track contact.id) {
           <tr>
             <td>{{ contact.firstName }} {{ contact.lastName }}</td>
             <td>{{ contact.email }}</td>
@@ -101,23 +93,5 @@ interface Contact {
   `,
 })
 export class ContactListComponent {
-  readonly searchTerm = signal('');
-
-  readonly contacts = signal<Contact[]>([
-    { id: '1', firstName: 'Konstantin', lastName: 'Merker', email: 'k.merker@dvc.de', company: 'DVC', tags: ['lead', 'angular'] },
-    { id: '2', firstName: 'Sarah', lastName: 'Koch', email: 's.koch@example.de', company: 'TechCorp', tags: ['prospect'] },
-    { id: '3', firstName: 'Jan', lastName: 'Braun', email: 'j.braun@example.de', company: 'DataFlow', tags: ['customer', 'enterprise'] },
-  ]);
-
-  readonly filteredContacts = computed(() => {
-    const term = this.searchTerm().toLowerCase();
-    if (!term) return this.contacts();
-    return this.contacts().filter(
-      (c) =>
-        c.firstName.toLowerCase().includes(term) ||
-        c.lastName.toLowerCase().includes(term) ||
-        c.company.toLowerCase().includes(term) ||
-        c.tags.some((t) => t.includes(term))
-    );
-  });
+  readonly contactStore = inject(ContactStore);
 }

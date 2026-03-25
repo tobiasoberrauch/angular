@@ -123,21 +123,21 @@
 
 **Independent Test**: Each feature store manages entities with CRUD operations, computed derived state, and reactive methods
 
-- [ ] T039 [US6] Install `@ngrx/signals` package. Add to `package.json` dependencies
-- [ ] T040 [P] [US6] Create Product SignalStore at `src/app/features/ecommerce/data-access/product.store.ts` using `signalStore()`, `withEntities()`, `withComputed()`, `withMethods()` for product CRUD and filtering
-- [ ] T041 [P] [US6] Create Cart SignalStore at `src/app/features/ecommerce/data-access/cart.store.ts` with `withState()` for cart items, `withComputed()` for total/item count, `withMethods()` for add/remove/clear
-- [ ] T042 [P] [US6] Create Task SignalStore at `src/app/features/tasks/data-access/task.store.ts` using `withEntities()`, `withComputed()` for status group counts, `withMethods()` for status transitions
-- [ ] T043 [P] [US6] Create Project SignalStore at `src/app/features/tasks/data-access/project.store.ts` with `withEntities()` and project CRUD
-- [ ] T044 [P] [US6] Create Employee SignalStore at `src/app/features/hr/data-access/employee.store.ts` using `withEntities()`, `withComputed()` for department grouping
-- [ ] T045 [P] [US6] Create TimeEntry SignalStore at `src/app/features/hr/data-access/time-entry.store.ts` with `withState()`, `withComputed()` for weekly hours
-- [ ] T046 [P] [US6] Create LeaveRequest SignalStore at `src/app/features/hr/data-access/leave.store.ts` with `withEntities()`, status transition methods
-- [ ] T047 [P] [US6] Create Contact SignalStore at `src/app/features/crm/data-access/contact.store.ts` using `withEntities()`, tag-based filtering
-- [ ] T048 [P] [US6] Create Deal SignalStore at `src/app/features/crm/data-access/deal.store.ts` with `withEntities()`, pipeline stage computed views
-- [ ] T049 [P] [US6] Create Activity SignalStore at `src/app/features/crm/data-access/activity.store.ts` with `withEntities()`, contact/deal relationship
-- [ ] T050 [US6] Wire all stores into their respective feature components (product-list, task-board, employee-list, contact-list, etc.)
-- [ ] T051 [US6] Add `withHooks()` onInit to each store for initial data loading (will connect to mock API in step-06)
-- [ ] T052 [US6] Add inline comments explaining SignalStore patterns: `patchState`, `withEntities` entity management, `signalStoreFeature` reusability
-- [ ] T053 [US6] Verify all stores manage state correctly with hardcoded seed data. Create Git branch `step-05-ngrx-signalstore`
+- [x] T039 [US6] Install `@ngrx/signals` package. Add to `package.json` dependencies
+- [x] T040 [P] [US6] Create Product SignalStore at `src/app/features/ecommerce/data-access/product.store.ts` using `signalStore()`, `withState()`, `withComputed()`, `withMethods()` for product CRUD and filtering
+- [x] T041 [P] [US6] Create Cart SignalStore at `src/app/features/ecommerce/data-access/cart.store.ts` with `withState()` for cart items, `withComputed()` for total/item count, `withMethods()` for add/remove/clear
+- [x] T042 [P] [US6] Create Task SignalStore at `src/app/features/tasks/data-access/task.store.ts` with `withState()`, `withComputed()` for status group counts, `withMethods()` for status transitions
+- [x] T043 [P] [US6] Create Project SignalStore at `src/app/features/tasks/data-access/project.store.ts` with `withState()` and project CRUD
+- [x] T044 [P] [US6] Create Employee SignalStore at `src/app/features/hr/data-access/employee.store.ts` using `withState()`, `withComputed()` for department grouping
+- [x] T045 [P] [US6] Create TimeEntry SignalStore at `src/app/features/hr/data-access/time-entry.store.ts` with `withState()`, `withComputed()` for weekly hours
+- [x] T046 [P] [US6] Create LeaveRequest SignalStore at `src/app/features/hr/data-access/leave.store.ts` with `withState()`, status transition methods
+- [x] T047 [P] [US6] Create Contact SignalStore at `src/app/features/crm/data-access/contact.store.ts` using `withState()`, tag-based filtering
+- [x] T048 [P] [US6] Create Deal SignalStore at `src/app/features/crm/data-access/deal.store.ts` with `withState()`, pipeline stage computed views
+- [x] T049 [P] [US6] Create Activity SignalStore at `src/app/features/crm/data-access/activity.store.ts` with `withState()`, contact/deal relationship
+- [x] T050 [US6] Wire all stores into their respective feature components (product-list, task-board, employee-list, contact-list)
+- [x] T051 [US6] Add `withHooks()` onInit to each store for initial data loading (will connect to mock API in step-06)
+- [x] T052 [US6] Add inline comments explaining SignalStore patterns: `patchState`, `withState`, `withComputed`, `withMethods`, `withHooks`
+- [x] T053 [US6] Verify all stores manage state correctly with hardcoded seed data. Create Git branch `step-05-ngrx-signalstore`
 
 **Checkpoint**: All 10 SignalStores implemented. Each feature component reads from its store. Computed signals derive filtered/grouped views. State updates flow unidirectionally.
 
