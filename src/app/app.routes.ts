@@ -23,7 +23,13 @@ export const routes: Routes = [
       import('./features/crm/crm.routes').then((m) => m.crmRoutes),
   },
   {
-    // Legacy module uses loadChildren with NgModule (migration demo)
+    // LEGACY: Uses loadChildren with NgModule — the pre-v15 pattern.
+    // Compare with feature routes above that use loadComponent (standalone).
+    //
+    // Migration: Replace loadChildren → loadComponent, point to component directly:
+    //   loadComponent: () => import('./legacy/legacy-dashboard/legacy-dashboard.component')
+    //     .then(m => m.LegacyDashboardComponent)
+    // Then delete legacy.module.ts entirely.
     path: 'legacy',
     loadChildren: () =>
       import('./legacy/legacy.module').then((m) => m.LegacyModule),

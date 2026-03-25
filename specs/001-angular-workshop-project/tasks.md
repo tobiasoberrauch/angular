@@ -71,12 +71,12 @@
 
 **Independent Test**: Legacy NgModule renders, then migration to standalone preserves identical behavior with lazy loading
 
-- [ ] T020 [US5] Create legacy NgModule at `src/app/legacy/legacy.module.ts` with `LegacyDashboardComponent`, declarations, and imports
-- [ ] T021 [P] [US5] Create legacy dashboard component at `src/app/legacy/legacy-dashboard/legacy-dashboard.component.ts` using NgModule pattern (with `standalone: false`)
-- [ ] T022 [P] [US5] Create legacy routing at `src/app/legacy/legacy.routes.ts` using `loadChildren` with NgModule
-- [ ] T023 [US5] Add inline migration comments in legacy module explaining each NgModule concept and its standalone equivalent
-- [ ] T024 [US5] Ensure all feature route components use `standalone: true` (implicit in Angular 21) and demonstrate `loadComponent` lazy loading in `src/app/app.routes.ts`
-- [ ] T025 [US5] Verify project compiles with both NgModule and standalone patterns coexisting. Create Git branch `step-02-standalone-migration`
+- [x] T020 [US5] Create legacy NgModule at `src/app/legacy/legacy.module.ts` with `LegacyDashboardComponent`, declarations, and imports
+- [x] T021 [P] [US5] Create legacy dashboard component at `src/app/legacy/legacy-dashboard/legacy-dashboard.component.ts` using NgModule pattern (with `standalone: false`)
+- [x] T022 [P] [US5] Create legacy routing at `src/app/legacy/legacy.routes.ts` using `loadChildren` with NgModule
+- [x] T023 [US5] Add inline migration comments in legacy module explaining each NgModule concept and its standalone equivalent
+- [x] T024 [US5] Ensure all feature route components use `standalone: true` (implicit in Angular 21) and demonstrate `loadComponent` lazy loading in `src/app/app.routes.ts`
+- [x] T025 [US5] Verify project compiles with both NgModule and standalone patterns coexisting. Create Git branch `step-02-standalone-migration`
 
 **Checkpoint**: Legacy module renders via NgModule routing. All other features use standalone components with `loadComponent`. Participants can compare both patterns.
 

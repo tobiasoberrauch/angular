@@ -4,14 +4,28 @@ import { Component } from '@angular/core';
  * LEGACY COMPONENT - NgModule Pattern
  *
  * Note: `standalone: false` must be explicitly set in Angular 21
- * because standalone is now the default.
+ * because standalone is now the default (implicit `standalone: true`).
  *
- * This component is declared in LegacyModule and uses:
- * - NgModule-level imports (CommonModule directives)
- * - Traditional change detection (Zone.js-based)
- * - No Signals (imperative state management)
+ * COMPARISON:
+ * ┌──────────────────────┬─────────────────────────────────────────┐
+ * │  This Component       │  Standalone Equivalent                 │
+ * ├──────────────────────┼─────────────────────────────────────────┤
+ * │  standalone: false    │  Remove (true is default)              │
+ * │  *ngFor directive     │  @for (item of items; track item.id)   │
+ * │  *ngIf directive      │  @if (condition) { ... }               │
+ * │  Module-level imports │  imports: [NgFor] in @Component        │
+ * │  Mutable array state  │  signal<Item[]>([...])                 │
+ * │  this.stats (plain)   │  readonly stats = signal([...])        │
+ * └──────────────────────┴─────────────────────────────────────────┘
  *
- * Workshop Exercise: Migrate this to a standalone component.
+ * Workshop Exercise: Migrate this component to standalone:
+ * 1. Remove `standalone: false`
+ * 2. Replace *ngFor with @for control flow
+ * 3. Convert `stats` array to `signal()`
+ * 4. Update route to use `loadComponent` instead of NgModule
+ * 5. Delete legacy.module.ts
+ *
+ * See: src/app/features/ecommerce/ui/product-list/ for a completed example
  */
 @Component({
   standalone: false,
