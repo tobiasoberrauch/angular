@@ -1,0 +1,41 @@
+{
+  "products": [
+    { "id": "1", "name": "Angular Workshop Book", "price": 49.99, "category": "Books", "inStock": true },
+    { "id": "2", "name": "TypeScript Masterclass", "price": 39.99, "category": "Courses", "inStock": true },
+    { "id": "3", "name": "RxJS Deep Dive", "price": 29.99, "category": "Courses", "inStock": false },
+    { "id": "4", "name": "NgRx Signals Guide", "price": 19.99, "category": "Books", "inStock": true },
+    { "id": "5", "name": "Angular Testing Pro", "price": 44.99, "category": "Courses", "inStock": true }
+  ],
+  "tasks": [
+    { "id": "1", "title": "Setup project structure", "description": "Initialize Angular 21 project", "status": "done", "priority": "high", "projectId": "1" },
+    { "id": "2", "title": "Implement product catalog", "description": "Build product listing with signals", "status": "in-progress", "priority": "high", "projectId": "1" },
+    { "id": "3", "title": "Create user dashboard", "description": "Design and build main dashboard", "status": "todo", "priority": "medium", "projectId": "1" },
+    { "id": "4", "title": "Add authentication", "description": "Implement JWT auth flow", "status": "todo", "priority": "critical", "projectId": "2" },
+    { "id": "5", "title": "Write unit tests", "description": "Cover core services with tests", "status": "review", "priority": "medium", "projectId": "1" },
+    { "id": "6", "title": "API integration", "description": "Connect to backend services", "status": "todo", "priority": "high", "projectId": "2" }
+  ],
+  "employees": [
+    { "id": "1", "firstName": "Anna", "lastName": "Schmidt", "email": "a.schmidt@dvc.de", "department": "Engineering", "position": "Senior Developer", "startDate": "2022-03-15" },
+    { "id": "2", "firstName": "Max", "lastName": "Mueller", "email": "m.mueller@dvc.de", "department": "Engineering", "position": "Tech Lead", "startDate": "2020-06-01" },
+    { "id": "3", "firstName": "Lisa", "lastName": "Weber", "email": "l.weber@dvc.de", "department": "Design", "position": "UX Designer", "startDate": "2023-01-10" },
+    { "id": "4", "firstName": "Tom", "lastName": "Fischer", "email": "t.fischer@dvc.de", "department": "Product", "position": "Product Manager", "startDate": "2021-09-20" },
+    { "id": "5", "firstName": "Julia", "lastName": "Wagner", "email": "j.wagner@dvc.de", "department": "Engineering", "position": "Junior Developer", "startDate": "2024-07-01" }
+  ],
+  "contacts": [
+    { "id": "1", "firstName": "Konstantin", "lastName": "Merker", "email": "k.merker@dvc.de", "company": "DVC", "tags": ["lead", "angular"], "phone": "+49 170 1234567" },
+    { "id": "2", "firstName": "Sarah", "lastName": "Koch", "email": "s.koch@example.de", "company": "TechCorp", "tags": ["prospect"] },
+    { "id": "3", "firstName": "Jan", "lastName": "Braun", "email": "j.braun@example.de", "company": "DataFlow", "tags": ["customer", "enterprise"] },
+    { "id": "4", "firstName": "Maria", "lastName": "Lang", "email": "m.lang@example.de", "company": "CloudNine", "tags": ["prospect", "angular"] }
+  ],
+  "deals": [
+    { "id": "1", "title": "Angular Training Package", "contactId": "1", "value": 15000, "currency": "EUR", "stage": "negotiation", "expectedCloseDate": "2026-04-15" },
+    { "id": "2", "title": "React Migration Consulting", "contactId": "2", "value": 8000, "currency": "EUR", "stage": "qualified", "expectedCloseDate": "2026-05-01" },
+    { "id": "3", "title": "Enterprise License", "contactId": "3", "value": 45000, "currency": "EUR", "stage": "proposal", "expectedCloseDate": "2026-06-30" },
+    { "id": "4", "title": "Support Contract", "contactId": "1", "value": 5000, "currency": "EUR", "stage": "closed-won", "expectedCloseDate": "2026-03-01" }
+  ],
+  "projects": [
+    { "id": "1", "name": "Angular Workshop", "description": "Enterprise Angular 21 training project", "status": "active" },
+    { "id": "2", "name": "API Migration", "description": "Migrate REST endpoints to GraphQL", "status": "active" },
+    { "id": "3", "name": "Legacy Cleanup", "description": "Remove deprecated NgModule patterns", "status": "completed" }
+  ]
+}

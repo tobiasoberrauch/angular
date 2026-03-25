@@ -1,0 +1,14 @@
+[
+  { "id": "1", "title": "Setup project structure", "description": "Initialize Angular workspace with Nx and configure base libraries", "status": "done", "priority": "high", "projectId": "1" },
+  { "id": "2", "title": "Design component library", "description": "Create shared UI components following the design system specifications", "status": "done", "priority": "high", "projectId": "1" },
+  { "id": "3", "title": "Implement authentication", "description": "Add OAuth2 login flow with JWT token handling and refresh logic", "status": "in-progress", "priority": "high", "projectId": "1" },
+  { "id": "4", "title": "Build dashboard view", "description": "Create the main dashboard with KPI widgets and chart components", "status": "in-progress", "priority": "medium", "projectId": "2" },
+  { "id": "5", "title": "Setup CI/CD pipeline", "description": "Configure GitHub Actions for linting, testing, and deployment", "status": "done", "priority": "high", "projectId": "1" },
+  { "id": "6", "title": "Add i18n support", "description": "Integrate ngx-translate for German and English localization", "status": "todo", "priority": "medium", "projectId": "2" },
+  { "id": "7", "title": "Write unit tests for services", "description": "Achieve 80% code coverage on all core services", "status": "in-progress", "priority": "medium", "projectId": "1" },
+  { "id": "8", "title": "Implement lazy loading", "description": "Split feature modules into lazy-loaded routes for better performance", "status": "todo", "priority": "low", "projectId": "2" },
+  { "id": "9", "title": "Create API mock server", "description": "Setup json-server with realistic seed data for frontend development", "status": "done", "priority": "medium", "projectId": "1" },
+  { "id": "10", "title": "Accessibility audit", "description": "Run axe-core checks and fix all critical WCAG 2.1 AA violations", "status": "todo", "priority": "high", "projectId": "2" },
+  { "id": "11", "title": "Migrate to standalone components", "description": "Convert all NgModule-based components to standalone API", "status": "todo", "priority": "low", "projectId": "1" },
+  { "id": "12", "title": "Performance profiling", "description": "Analyze bundle size and runtime performance with Angular DevTools", "status": "todo", "priority": "low", "projectId": "2" }
+]

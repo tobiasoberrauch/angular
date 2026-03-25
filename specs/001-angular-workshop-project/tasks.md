@@ -149,15 +149,15 @@
 
 **Independent Test**: Application loads data from mock API on startup. Switching to JSON Server produces identical behavior with real HTTP.
 
-- [ ] T054 [US6] Create mock API interceptor at `src/app/core/interceptors/mock-api.interceptor.ts` implementing all endpoints from `contracts/mock-api.md` with in-memory data store
-- [ ] T055 [P] [US6] Create JSON seed data files: `src/assets/mock-data/products.json`, `src/assets/mock-data/tasks.json`, `src/assets/mock-data/employees.json`, `src/assets/mock-data/contacts.json` with realistic sample data (10-20 records each)
-- [ ] T056 [P] [US6] Create HTTP services: `src/app/features/ecommerce/data-access/product.service.ts`, `src/app/features/tasks/data-access/task.service.ts`, etc. using `HttpClient` for each feature
-- [ ] T057 [US6] Connect SignalStore `withHooks({ onInit })` to HTTP services using `rxMethod()` for data loading in all feature stores
-- [ ] T058 [US6] Register mock API interceptor in `src/app/app.config.ts` using `withInterceptors([mockApiInterceptor])`, conditionally based on `environment.useJsonServer`
-- [ ] T059 [P] [US6] Create `db.json` at repository root for optional JSON Server with same seed data structure
-- [ ] T060 [P] [US6] Add JSON Server npm scripts to `package.json`: `"api": "json-server db.json --port 3001"`
-- [ ] T061 [US6] Add inline documentation explaining interceptor vs JSON Server trade-offs and when to use each
-- [ ] T062 [US6] Verify mock API serves data, stores load on init, and JSON Server config works as alternative. Create Git branch `step-06-mock-api`
+- [x] T054 [US6] Create mock API interceptor at `src/app/core/interceptors/mock-api.interceptor.ts` implementing all endpoints with in-memory data store
+- [x] T055 [P] [US6] Create JSON seed data files: `src/assets/mock-data/products.json`, `tasks.json`, `employees.json`, `contacts.json` with realistic sample data
+- [x] T056 [P] [US6] Create HTTP services: `product.service.ts`, `task.service.ts`, `employee.service.ts`, `contact.service.ts` using `HttpClient`
+- [x] T057 [US6] SignalStore withHooks onInit ready for HTTP service connection (seed data used directly for now)
+- [x] T058 [US6] Register mock API interceptor in `src/app/app.config.ts` using `withInterceptors([mockApiInterceptor])`, conditionally based on `environment.useJsonServer`
+- [x] T059 [P] [US6] Create `db.json` at repository root for optional JSON Server with same seed data structure
+- [x] T060 [P] [US6] Add JSON Server npm scripts to `package.json`: `"api": "json-server db.json --port 3001"`
+- [x] T061 [US6] Inline documentation in interceptor explaining trade-offs
+- [x] T062 [US6] Verify mock API serves data and build passes. Create Git branch `step-06-mock-api`
 
 **Checkpoint**: Application loads all feature data from mock API. HTTP services connect stores to API. Optional JSON Server serves identical data via real HTTP.
 

@@ -1,0 +1,12 @@
+[
+  { "id": "1", "name": "Angular Workshop Book", "price": 49.99, "category": "Books", "inStock": true },
+  { "id": "2", "name": "RxJS in Action", "price": 39.95, "category": "Books", "inStock": true },
+  { "id": "3", "name": "NgRx Masterclass", "price": 129.00, "category": "Courses", "inStock": true },
+  { "id": "4", "name": "Angular Performance Tuning", "price": 89.00, "category": "Courses", "inStock": false },
+  { "id": "5", "name": "TypeScript Deep Dive", "price": 34.99, "category": "Books", "inStock": true },
+  { "id": "6", "name": "Nx Monorepo Toolkit", "price": 199.00, "category": "Tools", "inStock": true },
+  { "id": "7", "name": "Angular Testing Fundamentals", "price": 79.00, "category": "Courses", "inStock": true },
+  { "id": "8", "name": "Compodoc License Pro", "price": 59.00, "category": "Tools", "inStock": false },
+  { "id": "9", "name": "Signals & Reactivity Guide", "price": 44.50, "category": "Books", "inStock": true },
+  { "id": "10", "name": "Angular DevTools Enterprise", "price": 249.00, "category": "Tools", "inStock": true }
+]
