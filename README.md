@@ -1,6 +1,6 @@
 # Angular 21 Advanced Workshop
 
-**Enterprise-Referenzprojekt fuer das 5-taegige Angular Advanced Training**
+**Enterprise-Referenzprojekt für das 5-tägige Angular Advanced Training**
 
 > Veranstalter: DVC - Digital Venture Consultants, Frankfurt
 > Trainer: Tobias Oberrauch
@@ -10,26 +10,26 @@
 
 ## Inhaltsverzeichnis
 
-- [Ueberblick](#ueberblick)
+- [Überblick](#überblick)
 - [Voraussetzungen](#voraussetzungen)
 - [Schnellstart](#schnellstart)
 - [Workshop-Struktur](#workshop-struktur)
-- [Branch-Uebersicht](#branch-uebersicht)
+- [Branch-Übersicht](#branch-übersicht)
 - [Projektstruktur](#projektstruktur)
 - [Feature-Module](#feature-module)
 - [Technologie-Stack](#technologie-stack)
 - [Migrations-Checklisten](#migrations-checklisten)
 - [Workshop-Navigation](#workshop-navigation)
-- [Uebungen](#uebungen)
+- [Übungen](#übungen)
 - [Lizenz & Kontakt](#lizenz--kontakt)
 
 ---
 
-## Ueberblick
+## Überblick
 
-Dieses Repository ist das zentrale Referenzprojekt fuer den **Angular 21 Advanced Workshop**. Es dient als praxisnahe Grundlage fuer ein 5-taegiges Training, das sich an erfahrene Angular-Entwickler richtet.
+Dieses Repository ist das zentrale Referenzprojekt für den **Angular 21 Advanced Workshop**. Es dient als praxisnahe Grundlage für ein 5-tägiges Training, das sich an erfahrene Angular-Entwickler richtet.
 
-Das Projekt bildet eine realitaetsnahe Enterprise-Anwendung ab und deckt folgende Schwerpunkte ab:
+Das Projekt bildet eine realitätsnahe Enterprise-Anwendung ab und deckt folgende Schwerpunkte ab:
 
 - Migration von NgModules zu Standalone Components
 - Signals und Zoneless Change Detection
@@ -37,7 +37,7 @@ Das Projekt bildet eine realitaetsnahe Enterprise-Anwendung ab und deckt folgend
 - Signal-basierte Formulare und Barrierefreiheit
 - CI/CD-Pipelines und Migrations-Strategien
 
-Jeder Workshop-Tag baut auf dem vorherigen auf. Die einzelnen Schritte sind als Git-Branches organisiert, sodass Teilnehmer jederzeit zu einem definierten Zustand zurueckspringen koennen.
+Jeder Workshop-Tag baut auf dem vorherigen auf. Die einzelnen Schritte sind als Git-Branches organisiert, sodass Teilnehmer jederzeit zu einem definierten Zustand zurückspringen können.
 
 ---
 
@@ -66,7 +66,7 @@ Jeder Workshop-Tag baut auf dem vorherigen auf. Die einzelnen Schritte sind als 
 git clone https://github.com/tobiasoberrauch/angular.git
 cd angular
 
-# Abhaengigkeiten installieren
+# Abhängigkeiten installieren
 npm install
 
 # Entwicklungsserver starten
@@ -78,7 +78,7 @@ Die Anwendung ist unter `http://localhost:4200` erreichbar.
 ### Weitere Befehle
 
 ```bash
-# Unit-Tests ausfuehren
+# Unit-Tests ausführen
 ng test
 
 # Linting
@@ -105,7 +105,7 @@ ng build --configuration production
 
 | Schritt   | Thema                                    |
 | --------- | ---------------------------------------- |
-| step-03   | Einfuehrung in Signals                   |
+| step-03   | Einführung in Signals                   |
 | step-04   | Zoneless Change Detection                |
 
 **Lernziele:** Signal-Primitiven (signal, computed, effect) einsetzen, Zone.js entfernen, Change Detection mit Signals steuern, Performance-Vergleich mit und ohne Zone.js.
@@ -118,7 +118,7 @@ ng build --configuration production
 | step-06   | Erweitertes State Management             |
 | step-07   | Mock API und HTTP-Integration            |
 
-**Lernziele:** SignalStore als leichtgewichtige State-Management-Loesung einsetzen, Custom Store Features entwickeln, HTTP-Requests mit Mock-Backend integrieren.
+**Lernziele:** SignalStore als leichtgewichtige State-Management-Lösung einsetzen, Custom Store Features entwickeln, HTTP-Requests mit Mock-Backend integrieren.
 
 ### Tag 4: Signal Forms & Angular Aria
 
@@ -135,13 +135,13 @@ ng build --configuration production
 | --------- | ---------------------------------------- |
 | step-10   | CI/CD, Migrations-Checklisten, Abschluss |
 
-**Lernziele:** CI/CD-Pipeline fuer Angular-Projekte aufsetzen, Migrations-Strategien fuer bestehende Projekte, erworbenes Wissen im Abschlussprojekt anwenden.
+**Lernziele:** CI/CD-Pipeline für Angular-Projekte aufsetzen, Migrations-Strategien für bestehende Projekte, erworbenes Wissen im Abschlussprojekt anwenden.
 
 ---
 
-## Branch-Uebersicht
+## Branch-Übersicht
 
-Jeder Schritt ist als eigener Branch verfuegbar. So koennen Teilnehmer bei Bedarf einen definierten Ausgangszustand laden.
+Jeder Schritt ist als eigener Branch verfügbar. So können Teilnehmer bei Bedarf einen definierten Ausgangszustand laden.
 
 | Branch       | Beschreibung                                         |
 | ------------ | ---------------------------------------------------- |
@@ -178,7 +178,7 @@ src/
       directives/
       pipes/
       models/
-    features/                 # Feature-Module nach Domaene
+    features/                 # Feature-Module nach Domäne
       e-commerce/
       tasks/
       hr/
@@ -195,18 +195,18 @@ docs/
   checklists/                 # Migrations-Checklisten
 scripts/
   workshop-nav.sh             # Workshop-Navigationsscript
-  docs/exercises/               # Uebungsaufgaben pro Tag
+  docs/exercises/               # Übungsaufgaben pro Tag
 ```
 
 ---
 
 ## Feature-Module
 
-Die Anwendung bildet vier Geschaeftsdomaenen ab. Jede Domaene demonstriert unterschiedliche Angular-Patterns.
+Die Anwendung bildet vier Geschäftsdomänen ab. Jede Domäne demonstriert unterschiedliche Angular-Patterns.
 
 ### E-Commerce
 
-Produktkatalog, Warenkorb und Bestellprozess. Demonstriert **NgRx SignalStore** fuer komplexes State Management, **Lazy Loading** und **Route Guards**.
+Produktkatalog, Warenkorb und Bestellprozess. Demonstriert **NgRx SignalStore** für komplexes State Management, **Lazy Loading** und **Route Guards**.
 
 ### Tasks
 
@@ -239,7 +239,7 @@ Kundenverwaltung und Kontakthistorie. Demonstriert **Barrierefreiheit mit Angula
 
 ## Migrations-Checklisten
 
-Im Verzeichnis `docs/checklists/` befinden sich ausfuehrliche Anleitungen fuer die Migration bestehender Angular-Projekte:
+Im Verzeichnis `docs/checklists/` befinden sich ausführliche Anleitungen für die Migration bestehender Angular-Projekte:
 
 | Checkliste                           | Beschreibung                                          |
 | ------------------------------------ | ----------------------------------------------------- |
@@ -248,7 +248,7 @@ Im Verzeichnis `docs/checklists/` befinden sich ausfuehrliche Anleitungen fuer d
 | `zoneless-migration.md`             | Zone.js entfernen, Zoneless aktivieren                |
 | `signal-forms-migration.md`         | Reactive Forms zu Signal Forms migrieren              |
 
-Jede Checkliste enthaelt eine Schritt-fuer-Schritt-Anleitung, haeufige Fehlerquellen und Teststrategien.
+Jede Checkliste enthält eine Schritt-für-Schritt-Anleitung, häufige Fehlerquellen und Teststrategien.
 
 ---
 
@@ -257,10 +257,10 @@ Jede Checkliste enthaelt eine Schritt-fuer-Schritt-Anleitung, haeufige Fehlerque
 Das Script `scripts/workshop-nav.sh` erleichtert die Navigation zwischen den Workshop-Schritten:
 
 ```bash
-# Zum naechsten Schritt wechseln
+# Zum nächsten Schritt wechseln
 ./scripts/workshop-nav.sh next
 
-# Zum vorherigen Schritt zurueckkehren
+# Zum vorherigen Schritt zurückkehren
 ./scripts/workshop-nav.sh prev
 
 # Zu einem bestimmten Schritt springen
@@ -270,24 +270,24 @@ Das Script `scripts/workshop-nav.sh` erleichtert die Navigation zwischen den Wor
 ./scripts/workshop-nav.sh status
 ```
 
-Das Script sichert lokale Aenderungen automatisch in einem Stash, bevor es den Branch wechselt.
+Das Script sichert lokale Änderungen automatisch in einem Stash, bevor es den Branch wechselt.
 
 ---
 
-## Uebungen
+## Übungen
 
-Im Verzeichnis `docs/exercises/` befinden sich die Uebungsaufgaben fuer jeden Workshop-Tag:
+Im Verzeichnis `docs/exercises/` befinden sich die Übungsaufgaben für jeden Workshop-Tag:
 
 ```
 docs/exercises/
-  tag-01-fundamentals.md   # Standalone & Control Flow Uebungen
-  tag-02-reactivity.md     # Signals & Zoneless Uebungen
-  tag-03-state-testing.md  # SignalStore & Vitest Uebungen
-  tag-04-forms-a11y.md     # Formulare & Accessibility Uebungen
+  tag-01-fundamentals.md   # Standalone & Control Flow Übungen
+  tag-02-reactivity.md     # Signals & Zoneless Übungen
+  tag-03-state-testing.md  # SignalStore & Vitest Übungen
+  tag-04-forms-a11y.md     # Formulare & Accessibility Übungen
   tag-05-production.md     # CI/CD & Abschlussprojekt
 ```
 
-Jede Uebung enthaelt eine Aufgabenbeschreibung, Hinweise und eine Musterloesungsvariante auf dem entsprechenden Branch.
+Jede Übung enthält eine Aufgabenbeschreibung, Hinweise und eine Musterlösungsvariante auf dem entsprechenden Branch.
 
 ---
 
@@ -299,7 +299,7 @@ Jede Uebung enthaelt eine Aufgabenbeschreibung, Hinweise und eine Musterloesungs
 **Telefon:** 0176 416 348 17
 **GitHub:** [github.com/tobiasoberrauch](https://github.com/tobiasoberrauch)
 
-Dieses Material ist ausschliesslich fuer Teilnehmer des Angular 21 Advanced Workshops bestimmt.
+Dieses Material ist ausschließlich für Teilnehmer des Angular 21 Advanced Workshops bestimmt.
 
 ---
 
