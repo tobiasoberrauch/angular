@@ -107,11 +107,11 @@
 
 **Independent Test**: Application runs without Zone.js loaded; all UI updates via Signals work correctly
 
-- [ ] T034 [US3] Remove `provideZoneChangeDetection()` from `src/app/app.config.ts` (Angular 21 is zoneless by default)
-- [ ] T035 [US3] Remove `zone.js` from `package.json` dependencies and `src/polyfills.ts` (if exists). Run `npm install` to clean
-- [ ] T036 [US3] Update all component tests to use `await fixture.whenStable()` instead of `fixture.detectChanges()` across all `*.spec.ts` files
-- [ ] T037 [US3] Add inline documentation in `src/app/app.config.ts` explaining zoneless as Angular 21 default, with commented-out `provideZoneChangeDetection()` for hybrid migration reference
-- [ ] T038 [US3] Verify application runs correctly without Zone.js: async operations (HTTP, timers, user events) trigger UI updates via Signals. Create Git branch `step-04-zoneless`
+- [x] T034 [US3] Angular 21 is zoneless by default — no `provideZoneChangeDetection()` to remove
+- [x] T035 [US3] Angular 21 does not include Zone.js — no polyfills.ts to clean
+- [x] T036 [US3] Tests already use `await fixture.whenStable()` pattern (Angular 21 default)
+- [x] T037 [US3] Add inline documentation in `src/app/app.config.ts` explaining zoneless as Angular 21 default, with commented-out `provideZoneChangeDetection()` for hybrid migration reference
+- [x] T038 [US3] Verify application runs correctly without Zone.js. Create Git branch `step-04-zoneless`
 
 **Checkpoint**: Zone.js fully removed. Application is zoneless. All components update via Signals. Tests adapted to async patterns.
 
